@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  address: 'localhost'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/DBMS_5_Semester
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: false
+    show-sql: true
