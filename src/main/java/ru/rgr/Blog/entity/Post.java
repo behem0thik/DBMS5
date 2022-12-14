@@ -33,6 +33,20 @@ public class Post {
 //    @Type(type = "uuid-char")
     private UUID userId;
 
+    @Column(name = "article")
+    private String article;
+
+    @Column(name = "post_content")
+    @Lob
+    private byte[] content;
+
+    @Column(name = "image")
+    @Lob
+    private byte[] image;
+
+    @Column(name = "post_category")
+    private String postCategory;
+
     @Column(name = "created_at", updatable = false)
     @ColumnDefault("current_timestamp()")
     @CreationTimestamp
@@ -43,4 +57,11 @@ public class Post {
     @UpdateTimestamp
     private Date updatedAt;
 
+    public Post(UUID userId, String article, byte[] content, byte[] image, String postCategory) {
+        this.userId = userId;
+        this.article = article;
+        this.content = content;
+        this.image = image;
+        this.postCategory = postCategory;
+    }
 }
