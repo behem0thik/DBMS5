@@ -25,12 +25,17 @@ public class User {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(name = "user_id", updatable = false, nullable = false, unique = true)
+    @ColumnDefault("random_uuid()")
     private UUID userId;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users", fetch = FetchType.LAZY)
+//    @Value("#{Collections.emptyList()}")
     private List<Post> posts;
 
     @Column(name = "created_at", updatable = false)
@@ -42,4 +47,9 @@ public class User {
     @ColumnDefault("current_timestamp()")
     @UpdateTimestamp
     private Date updatedAt;
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
