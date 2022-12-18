@@ -1,4 +1,4 @@
-package ru.rgr.Blog.entity;
+package ru.rgr.Blog.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -35,7 +35,6 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users", fetch = FetchType.LAZY)
-//    @Value("#{Collections.emptyList()}")
     private List<Post> posts;
 
     @Column(name = "created_at", updatable = false)
