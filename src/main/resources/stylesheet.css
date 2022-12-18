@@ -5,6 +5,14 @@ color: #3D3E48;
 
 
 
+p{
+margin: 0px 0px 20px 0px;
+}
+h2{
+margin: 30px 0px 20px 0px;
+}
+
+
 .rect-1 {
         width: 100%;
         max-height: 275px;
@@ -26,13 +34,7 @@ width: 100%;
 max-height:375px;
 }
 
-.row{
-    margin: 40px;
-    padding:20px;
-    display: flex;
-    flex-direction: row;
 
-}
 
 .card text, .card-body text{
 
@@ -43,49 +45,50 @@ max-height:375px;
 
 }
 
-.row-non-margin{
-    margin: 20px 0px 20px 0px;
-    padding:0px;
-    display: flex;
-    flex-direction: row;
-
-}
 
 
 
 
- .menu-main {
+.menu {
    list-style: none;
    margin: 0px 0px 0px 0px;
    padding: 25px 0px 5px;
    text-align: center;
    background: rgba(255,255,255,.5);
-   box-shadow: 3px 0 7px rgba(0,0,0,.3);
 
  }
- .menu-main li {display: inline-block; }
+
+ .menu li {display: inline-block; }
  .menu-main li:after {
    content: "|";
    color: #3D3E48;
    display: inline-block;
    vertical-align:top;
  }
- .menu-main li:last-child:after {content: none;}
- .menu-main a {
+ .menu li:last-child:after {content: none;}
+ .menu a {
    text-decoration: none;
    letter-spacing: 2px;
    position: relative;
    padding-bottom: 20px;
    margin: 0 34px 0 30px;
    font-size: 17px;
-   text-transform: uppercase;
+
    display: inline-block;
    transition: color .2s;
  }
- .menu-main a, .menu-main a:visited {color: #3D3E48;}
- .menu-main a.current, .menu-main a:hover{color: #3D3E48;}
- .menu-main a:before,
- .menu-main a:after {
+
+ .menu-main a{
+    text-transform: uppercase;
+ }
+
+ .menu a, .menu a:visited {color: #3D3E48;}
+ .menu a.current, .menu a:hover{color: #3D3E48;}
+
+ .menu-sub a.current, .menu-sub a:hover{color:#43B97F}
+
+ .menu a:before,
+ .menu a:after {
    x;
    content: "";
    position: absolute;
@@ -121,6 +124,24 @@ max-height:375px;
         align-items: center;
       }
       .content img {
+        height: 100%;
+        width: auto;
+      }
+.rect-3 {
+
+        width: 100%;
+        height: 225px;
+        border-radius:5px;
+      }
+      .content {
+
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content img {
+
         height: 100%;
         width: auto;
       }
