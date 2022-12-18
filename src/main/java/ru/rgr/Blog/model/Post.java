@@ -1,4 +1,4 @@
-package ru.rgr.Blog.entity;
+package ru.rgr.Blog.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,6 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -44,8 +46,8 @@ public class Post {
     @Lob
     private byte[] image;
 
-    @Column(name = "post_category")
-    private String postCategory;
+    @ManyToMany(mappedBy = "posts")
+    private Set<Tag> tags = new HashSet<>();
 
     @Column(name = "created_at", updatable = false)
     @ColumnDefault("current_timestamp()")
@@ -57,11 +59,11 @@ public class Post {
     @UpdateTimestamp
     private Date updatedAt;
 
-    public Post(UUID userId, String article, byte[] content, byte[] image, String postCategory) {
+    public Post(UUID userId, String article, byte[] content, byte[] image, Set<Tag> tags) {
         this.userId = userId;
         this.article = article;
         this.content = content;
         this.image = image;
-        this.postCategory = postCategory;
+        this.tags = tags;
     }
 }
