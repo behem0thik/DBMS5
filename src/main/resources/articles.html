@@ -1,51 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Главная страница</title>
+    <title>Новости</title>
     <link href='/static/stylesheet.css' rel='stylesheet' type='text/css'>
     <link href='/static/main.css' rel='stylesheet' type='text/css'>
-
 </head>
 <body>
-<header th:insert="/blocks/header :: header"></header>
+<header>
+    <ul class="menu menu-main shadow-sm">
+        <li><a href="main.html">Главная</a></li>
+        <li><a href="articles.html" class="current">Статьи</a></li>
+        <li><a href="account.html">Личный кабинет</a></li>
+    </ul>
+</header>
 <div class="rect-1 content">
-    <img src="/img/main-cover.png">
+    <img src="/img/articles-cover.png">
 </div>
 <div class="container">
-    <div class="row row-3 row-block">
-        <div class="col-md-5 order-md-1">
-            <img src="/img/main-banner.png" width="500px">
-        </div>
-        <div class="col-md-7 order-md-2" >
-            <p><small>TraveLove</small></p>
-            <h2 class="featurette-heading fw-normal lh-1">Мы поможем тебе найти любимое место</h2>
-            <p class="lead">Совершай виртуальное путешествие с нашим блогом каждый день.
-                Мы любим путешествовать, искать интересные места и знакомиться с культурой различных стран.
-            </p>
-            <div >
-                <div class="row row-first">
-                    <div class="col-md-4 order-md-1">
-                        <div class="featurette-heading lh-0"><h2>100+</h2><br><p>статей</p>  </div>
-                    </div>
-                    <div class="col-md-4 order-md-2">
-                        <div class="featurette-heading lh-0"><h2>4</h2><br><p>категории</p>  </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 order-md-1">
-                        <div class="featurette-heading lh-0"><h2>216</h2><br><p>пользователей</p>  </div>
-                    </div>
-                    <div class="col-md-4 order-md-2">
-                        <div class="featurette-heading  lh-0"><h2>24</h2><br><p>автора</p> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2 align="center" class="featurette-heading fw-normal lh-1">
-        Наши новости
-    </h2>
+    <h2 align="center" class="featurette-heading fw-normal lh-1">Новости из путешествий</h2>
+    <p class="lead" align="center" style="margin:20px 0px 40px 0px">Будь вкурсе последних событий с нашим блогом</p>
+
+
+    <ul class="menu menu-sub">
+        <li><a class="current" href="#">Все категории</a></li>
+        <li><a href="#">Активные</a></li>
+        <li><a href="#">Семейные</a></li>
+        <li><a href="#">Пляжные</a></li>
+        <li><a href="#">Культурные</a></li>
+    </ul>
+
     <div class="row row-1">
         <div class="col-md-4 order-md-1">
             <div class="card shadow-sm">
@@ -164,6 +148,8 @@
         </div>
 
     </div>
+
 </div>
+
 </body>
 </html>
