@@ -6,6 +6,7 @@ import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.User;
 import ru.rgr.Blog.repository.UserRepository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,8 +27,8 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public List<User> findUsersByPosts(List<Post> posts) {
-        return userRepository.findUsersByPosts(posts);
+    public List<User> findUsersByPosts(Collection<List<Post>> posts) {
+        return userRepository.findAllByPostsIn(posts);
     }
 
     public User create(User user) {

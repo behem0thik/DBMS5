@@ -9,7 +9,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,14 +39,17 @@ public class Post {
 
     @Column(name = "post_content")
     @Lob
-    private byte[] content;
+    private String content;
 
-    @Column(name = "image")
-    @Lob
-    private byte[] image;
+//    @Column(name = "image")
+//    @Lob
+//    private byte[] image;
 
-    @ManyToMany(mappedBy = "posts")
-    private Set<Tag> tags = new HashSet<>();
+//    @ManyToMany(mappedBy = "posts")
+//    private List<Tag> tags;
+
+    @ManyToMany(mappedBy="posts")
+    private Set<Tag> tags;
 
     @Column(name = "created_at", updatable = false)
     @ColumnDefault("current_timestamp()")
@@ -59,11 +61,10 @@ public class Post {
     @UpdateTimestamp
     private Date updatedAt;
 
-    public Post(UUID userId, String article, byte[] content, byte[] image, Set<Tag> tags) {
+    public Post(UUID userId, String article, String content, Set<Tag> tags) {
         this.userId = userId;
         this.article = article;
         this.content = content;
-        this.image = image;
         this.tags = tags;
     }
 }

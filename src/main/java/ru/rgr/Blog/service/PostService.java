@@ -6,8 +6,9 @@ import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.Tag;
 import ru.rgr.Blog.repository.PostRepository;
 
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -27,8 +28,8 @@ public class PostService {
         return postRepository.findPostsByUserId(userId);
     }
 
-    public List<Post> findPostsByTags(HashSet<Tag> tags) {
-        return postRepository.findPostsByTags(tags);
+    public List<Post> findPostsByTags(Collection<Set<Tag>> tags) {
+        return postRepository.findAllByTagsIn(tags);
     }
 
     public Post create(Post post) {

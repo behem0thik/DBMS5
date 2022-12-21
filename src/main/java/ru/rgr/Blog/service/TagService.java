@@ -6,6 +6,7 @@ import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.Tag;
 import ru.rgr.Blog.repository.TagRepository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -20,8 +21,8 @@ public class TagService {
         return tagRepository.findAll();
     }
 
-    public List<Tag> findTagsByPosts(Set<Post> posts) {
-        return tagRepository.findTagsByPosts(posts);
+    public List<Tag> findTagsByPosts(Collection<Set<Post>> posts) {
+        return tagRepository.findAllByPostsIn(posts);
     }
 
     public Tag create(Tag tag) {

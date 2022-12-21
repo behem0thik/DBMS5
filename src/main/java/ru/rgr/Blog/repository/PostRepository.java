@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.Tag;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -13,5 +14,5 @@ import java.util.UUID;
 public interface PostRepository extends JpaRepository<Post, UUID> {
     List<Post> findPostsByUserId(UUID userId);
 
-    List<Post> findPostsByTags(Set<Tag> tags);
+    List<Post> findAllByTagsIn(Collection<Set<Tag>> tags);
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.User;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,5 +13,5 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, UUID> {
     User findByUsername(String username);
 
-    List<User> findUsersByPosts(List<Post> posts);
+    List<User> findAllByPostsIn(Collection<List<Post>> posts);
 }
