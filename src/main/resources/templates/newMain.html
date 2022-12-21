@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Add CSS and JS to Thymeleaf</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<h2>Carefully Styled Heading</h2>
+<p>
+<header th:insert="/blocks/header :: header"></header>
+
+This is text on which we want to apply <strong>very special</strong> styling.
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Add CSS and JS to Thymeleaf</title>-->
+<!--    <link th:href="@{/styles/cssandjs.css}" rel="stylesheet" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Carefully Styled Heading</h2>-->
+<!--<p>-->
+<!--    This is text on which we want to apply <strong>very special</strong> styling.-->
+<!--</p>-->
+<!--</body>-->
+<!--</html>-->
