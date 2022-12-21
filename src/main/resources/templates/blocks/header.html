@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8">
+    <link rel='stylesheet' th:href="@{/styles/main.css}">
+</head>
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments sample</h1>
+    <ul class="menu menu-main">
+        <li><a href="/index" class="current">Главная</a></li>
+        <li><a href="/articles">Статьи</a></li>
+        <li><a href="/account">Добавить статью</a></li>
+    </ul>
+</div>
+</html>
