@@ -1,168 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
-    <link href='/stylesheet.css' rel='stylesheet' type='text/css'>
-    <link href='/main.css' rel='stylesheet' type='text/css'>
-
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<header th:insert="/blocks/header :: header"></header>
+<!--<div th:insert="/blocks/header :: header"></div>-->
+<div th:insert="~{/blocks/header :: header}"></div>
 <div class="rect-1 content">
-    <img src="/img/main-cover.png">
+    <img alt="main-cover.png" src="/img/main-cover.png"/>
 </div>
 <div class="container">
-    <div class="row row-3 row-block">
+    <div id="about" class="row row-3 row-block">
         <div class="col-md-5 order-md-1">
-            <img src="/img/main-banner.png" width="500px">
+            <img src="/img/main-banner.png" width="580" alt="main-banner.png">
         </div>
-        <div class="col-md-7 order-md-2" >
+        <div class="col-md-7 order-md-2">
             <p><small>TraveLove</small></p>
-            <h2 class="featurette-heading fw-normal lh-1">Мы поможем тебе найти любимое место</h2>
+            <h2 class="feature-heading fw-normal lh-1">Мы поможем тебе найти любимое место</h2>
             <p class="lead">Совершай виртуальное путешествие с нашим блогом каждый день.
                 Мы любим путешествовать, искать интересные места и знакомиться с культурой различных стран.
             </p>
-            <div >
+            <div>
                 <div class="row row-first">
                     <div class="col-md-4 order-md-1">
-                        <div class="featurette-heading lh-0"><h2>100+</h2><br><p>статей</p>  </div>
+                        <div class="feature-heading lh-0"><h2>100+</h2><br>
+                            <p>статей</p></div>
                     </div>
                     <div class="col-md-4 order-md-2">
-                        <div class="featurette-heading lh-0"><h2>4</h2><br><p>категории</p>  </div>
+                        <div class="feature-heading lh-0"><h2>4</h2><br>
+                            <p>категории</p></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 order-md-1">
-                        <div class="featurette-heading lh-0"><h2>216</h2><br><p>пользователей</p>  </div>
+                        <div class="feature-heading lh-0"><h2>216</h2><br>
+                            <p>пользователей</p></div>
                     </div>
                     <div class="col-md-4 order-md-2">
-                        <div class="featurette-heading  lh-0"><h2>24</h2><br><p>автора</p> </div>
+                        <div class="feature-heading  lh-0"><h2>24</h2><br>
+                            <p>автора</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <h2 align="center" class="featurette-heading fw-normal lh-1">
+    <h2 align="center" class="feature-heading fw-normal lh-1">
         Наши новости
     </h2>
     <div class="row row-1">
-        <div class="col-md-4 order-md-1">
-            <div class="card shadow-sm">
-                <div class="rect-3 content">
-                    <img src="/img/1.png">
+        <div class="col-md-4 order-md-1 card shadow-sm">
+            <div class="rect-3 content">
+                <img src="/img/1.png" alt="1.png">
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    Путешествие по горной Исландии
                 </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <small class="text-muted">14/12/2022</small>
-                    </div>
+                <p class="card-text">
+                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
+                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button>Изменить</button>
+                    <button>Удалить</button>
+                    <small class="text-muted">14/12/2022</small>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 order-md-2">
-            <div class="card shadow-sm gy-3">
-                <div class="rect-3 content">
-                    <img src="/img/2.png">
+        <div class="col-md-4 order-md-2 card shadow-sm">
+            <div class="rect-3 content">
+                <img src="/img/1.png" alt="1.png">
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    Путешествие по горной Исландии
                 </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">13/12/2022</small>
-                    </div>
+                <p class="card-text">
+                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
+                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button>Изменить</button>
+                    <button>Удалить</button>
+                    <small class="text-muted">14/12/2022</small>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 order-md-3">
-            <div class="card shadow-sm">
-                <div class="rect-3 content">
-                    <img src="/img/3.png">
+        <div class="col-md-4 order-md-3 card shadow-sm">
+            <div class="rect-3 content">
+                <img src="/img/1.png" alt="1.png">
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    Путешествие по горной Исландии
                 </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">12/12/2022</small>
-                    </div>
+                <p class="card-text">
+                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
+                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button>Изменить</button>
+                    <button>Удалить</button>
+                    <small class="text-muted">14/12/2022</small>
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="row row-1">
-        <div class="col-md-4 order-md-1">
-            <div class="card shadow-sm">
-                <div class="rect-3 content">
-                    <img src="/img/1.png">
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <small class="text-muted">14/12/2022</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 order-md-2">
-            <div class="card shadow-sm">
-                <div class="rect-3 content">
-                    <img src="/img/2.png">
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">13/12/2022</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 order-md-3">
-            <div class="card shadow-sm">
-                <div class="rect-3 content">
-                    <img src="/img/3.png">
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        Путешествие по горной Исландии
-                    </div>
-                    <p class="card-text">
-                        Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.
-                        Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">12/12/2022</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 </body>
