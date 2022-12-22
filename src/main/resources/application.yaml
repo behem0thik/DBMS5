@@ -15,3 +15,9 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     defer-datasource-initialization: false
     show-sql: true
+
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
