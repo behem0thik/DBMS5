@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.Set;
 import java.util.UUID;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @NoArgsConstructor
 @Data
@@ -38,15 +40,12 @@ public class Post {
     private String article;
 
     @Column(name = "post_content")
-    @Lob
+    @Lob @Basic(fetch=LAZY)
     private String content;
 
-//    @Column(name = "image")
-//    @Lob
-//    private byte[] image;
-
-//    @ManyToMany(mappedBy = "posts")
-//    private List<Tag> tags;
+    @Column(name = "image",  columnDefinition="BLOB NOT NULL")
+    @Lob @Basic(fetch=LAZY)
+    private byte[] image;
 
     @ManyToMany(mappedBy="posts")
     private Set<Tag> tags;

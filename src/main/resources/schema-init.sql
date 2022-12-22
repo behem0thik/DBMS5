@@ -18,7 +18,7 @@ CREATE TABLE public.posts
     user_id      VARCHAR(255)                        NOT NULL,
     article      VARCHAR(100)                        NOT NULL,
     post_content VARCHAR(255)                        NOT NULL,
---     image        BYTEA                               NOT NULL,
+    image        BYTEA                               NOT NULL,
     created_at   TIMESTAMP DEFAULT current_timestamp NOT NULL,
     updated_at   TIMESTAMP DEFAULT current_timestamp NOT NULL,
     CONSTRAINT FK_posts_users FOREIGN KEY (user_id) REFERENCES users (user_id)
