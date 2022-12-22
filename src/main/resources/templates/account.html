@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить страницу</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:insert="~{/blocks/header :: header}"></div>
+<div class="rect-1 content">
+    <img src="/img/account-banner.png" alt="account-cover.jpg">
+</div>
+<div class="container" align="center">
+    <fieldset style="display: inline-grid; width: 90%;" >
+
+        <label for="title" >Название статьи: </label>
+        <input type="text" name="title" id="title" placeholder="Введите название статьи"><br>
+
+        <label for="text">Текст статьи: </label>
+        <textarea  name="text" id="text" placeholder="Введите текст статьи"></textarea><br>
+
+        <label for="tags">Теги статьи: </label>
+        <input type="text" id="tags" placeholder="Введите теги через запятую"><br>
+
+        <ul class="menu menu-sub">
+            <li><label>
+                <input type="checkbox">
+            </label>Активные
+            </li>
+            <li><label>
+                <input type="checkbox">
+            </label>Семейные
+            </li>
+            <li><label>
+                <input type="checkbox">
+            </label>Пляжные
+            </li>
+            <li><label>
+                <input type="checkbox">
+            </label>Культурные
+            </li>
+        </ul>
+
+        <div align="center" style="margin: 20px 0 20px 0;">
+            <button class="btn" type="submit">Применить</button>
+        </div>
+
+    </fieldset>
+</div>
+
+</body>
+</html>
