@@ -25,6 +25,10 @@ public class TagService {
         return tagRepository.findAllByPostsIn(posts);
     }
 
+    public Tag findTagByTagName(String tagName) {
+        return tagRepository.findTagByTagName(tagName);
+    }
+
     public Tag create(Tag tag) {
         return tagRepository.save(tag);
     }
