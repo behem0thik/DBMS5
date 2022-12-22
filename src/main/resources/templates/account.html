@@ -3,47 +3,48 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Добавить страницу</title>
-    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Добавить статью</title>
+        <link th:href="@{/styles/main.css}" rel="stylesheet" />
 </head>
 <body>
-<div th:insert="~{/blocks/header :: header}"></div>
-<div class="rect-1 content">
-    <img src="/img/account-banner.png" alt="account-cover.jpg">
+<header th:insert="blocks/header :: header"></header>
+<div class="cover">
+        <img src="/img/account-banner.png" alt="account-banner.jpg">
 </div>
-<div class="container" align="center">
-    <fieldset style="display: inline-grid; width: 90%;" >
 
-        <label for="title" >Название статьи: </label>
+<div class="container" align="center">
+    <h2 align="center" class="featurette-heading fw-normal lh-1">Поделись своими новостями с нами</h2>
+    <p class="lead" align="center" >Заполняй форму и делись с читателями последними событиями</p>
+    <fieldset>
+        <label align="left" for="title" >Название статьи: </label>
         <input type="text" name="title" id="title" placeholder="Введите название статьи"><br>
 
-        <label for="text">Текст статьи: </label>
+        <label align="left" for="text">Текст статьи: </label>
         <textarea  name="text" id="text" placeholder="Введите текст статьи"></textarea><br>
 
-        <label for="tags">Теги статьи: </label>
+        <label align="left" for="tags">Теги статьи: </label>
         <input type="text" id="tags" placeholder="Введите теги через запятую"><br>
 
-        <ul class="menu menu-sub">
+        <label align="left" for="tags">Определите категории вашей статьи: </label>
+        <ul class="menu row" id="categories">
             <li><label>
                 <input type="checkbox">
-            </label>Активные
-            </li>
+            </label>Активные</li>
             <li><label>
                 <input type="checkbox">
-            </label>Семейные
-            </li>
+            </label>Семейные</li>
             <li><label>
                 <input type="checkbox">
-            </label>Пляжные
-            </li>
+            </label>Пляжные</li>
             <li><label>
                 <input type="checkbox">
-            </label>Культурные
-            </li>
+            </label>Культурные</li>
         </ul>
 
         <div align="center" style="margin: 20px 0 20px 0;">
-            <button class="btn" type="submit">Применить</button>
+            <button class="btn" type="submit" >
+                <a href="/templates/account.html">Применить</a>
+            </button>
         </div>
 
     </fieldset>
