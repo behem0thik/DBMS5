@@ -26,10 +26,6 @@ public class Tag {
     @Column(name = "tag_name")
     private String tagName;
 
-//    @ManyToMany
-//    @JoinTable(name="posts_tags")
-//    private Set<Post> posts;
-
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "posts_tags",
@@ -37,29 +33,4 @@ public class Tag {
             inverseJoinColumns = {@JoinColumn(name = "post_id", referencedColumnName = "post_id")}
     )
     private Set<Post> posts;
-
-//    @ManyToMany
-//    @JoinTable(
-//            name = "posts_tags",
-//            joinColumns = {@JoinColumn(name = "tag_id", referencedColumnName = "tag_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "post_id", referencedColumnName = "post_id")}
-//    )
-//    public Set<Post> posts = getPosts();
-
-
-//    // In Customer class:
-//
-//     @ManyToMany
-//     @JoinTable(name="CUST_PHONE",
-//         joinColumns=
-//             @JoinColumn(name="CUST_ID", referencedColumnName="ID"),
-//         inverseJoinColumns=
-//             @JoinColumn(name="PHONE_ID", referencedColumnName="ID")
-//         )
-//     public Set<PhoneNumber> getPhones() { return phones; }
-//
-//     // In PhoneNumberClass:
-//
-//     @ManyToMany(mappedBy="phones")
-//     public Set<Customer> getCustomers() { return customers; }
 }
