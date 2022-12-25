@@ -16,8 +16,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/rest/tags")
 public class TagController {
-    @Autowired
     private TagService tagService;
+
+    @Autowired
+    public TagController(TagService tagService) {
+        this.tagService = tagService;
+    }
 
     @GetMapping
     public List<Tag> findAll() {

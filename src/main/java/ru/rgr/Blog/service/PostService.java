@@ -13,8 +13,12 @@ import java.util.UUID;
 
 @Service
 public class PostService {
+    private final PostRepository postRepository;
+
     @Autowired
-    private PostRepository postRepository;
+    public PostService(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     public List<Post> findAll() {
         return postRepository.findAll();

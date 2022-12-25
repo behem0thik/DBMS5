@@ -16,8 +16,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 public class PostController {
-    @Autowired
     private PostService postService;
+
+    @Autowired
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
 
     @GetMapping
     public List<Post> findAll() {
