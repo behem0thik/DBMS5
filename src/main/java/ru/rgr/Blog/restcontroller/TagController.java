@@ -1,4 +1,4 @@
-package ru.rgr.Blog.controller;
+package ru.rgr.Blog.restcontroller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.UUID;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/tags")
+@RequestMapping("/rest/tags")
 public class TagController {
     @Autowired
     private TagService tagService;

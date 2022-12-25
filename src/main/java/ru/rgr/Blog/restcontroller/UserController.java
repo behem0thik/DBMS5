@@ -1,4 +1,4 @@
-package ru.rgr.Blog.controller;
+package ru.rgr.Blog.restcontroller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/rest/users")
 @Slf4j
 @RequiredArgsConstructor
 public class UserController {
