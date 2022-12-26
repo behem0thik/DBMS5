@@ -32,10 +32,6 @@ public class Post implements Serializable {
     @ColumnDefault("random_uuid()")
     private UUID postId;
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "post_id", updatable = false, nullable = false, unique = true)
-//    private Long postId;
     @ManyToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     @JsonIgnore
