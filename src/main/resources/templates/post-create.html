@@ -7,12 +7,45 @@
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<form action="#" th:action="@{/post-create}" th:object="${post}" method="post">
-    <label for="article">Название</label>
-    <input type="text" th:field="*{article}" id="article" placeholder="Article">
-    <label for="content">Содержание</label>
-    <input type="text" th:field="*{content}" id="content" placeholder="Content">
-    <input type="submit" value="Create Post">
-</form>
+<header th:insert="blocks/header :: header"></header>
+<div class="cover">
+        <img src="/img/account-banner.png" alt="account-banner.jpg">
+</div>
+
+<div class="container" align="center">
+    <h2 align="center" class="featurette-heading fw-normal lh-1">Поделись своими новостями с нами</h2>
+    <p class="lead" align="center" >Заполняй форму и делись с читателями последними событиями</p>
+    <fieldset>
+        <form th:action="@{/post-create}" th:object="${post}" method="post">
+            <label align="left" for="article" >Название статьи: </label>
+            <input th:field="*{article}" id="article" type="text" name="title" placeholder="Введите название статьи"><br>
+
+            <label align="left" for="content">Текст статьи: </label>
+            <textarea th:field="*{content}" id="content"   name="text" placeholder="Введите текст статьи"></textarea><br>
+
+            <label align="left" for="tags">Теги статьи: </label>
+            <input type="text" id="tags" placeholder="Введите теги через запятую"><br>
+
+            <label align="left" for="tags">Определите категории вашей статьи: </label>
+            <ul class="menu row" id="categories">
+                <li><label>
+                    <input type="checkbox">
+                </label>Активные</li>
+                <li><label>
+                    <input type="checkbox">
+                </label>Семейные</li>
+                <li><label>
+                    <input type="checkbox">
+                </label>Пляжные</li>
+                <li><label>
+                    <input type="checkbox">
+                </label>Культурные</li>
+            </ul>
+            <input type="submit" value="Create Post">
+        </form>
+
+    </fieldset>
+</div>
+
 </body>
 </html>

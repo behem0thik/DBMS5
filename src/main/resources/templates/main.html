@@ -25,21 +25,21 @@
             </p>
             <div>
                 <div class="row row-first">
-                    <div class="col-md-4 order-md-1">
+                    <div class="col-md-3 order-md-1">
                         <div class="feature-heading lh-0"><h2>100+</h2><br>
                             <p>статей</p></div>
                     </div>
-                    <div class="col-md-4 order-md-2">
+                    <div class="col-md-3 order-md-2">
                         <div class="feature-heading lh-0"><h2>4</h2><br>
                             <p>категории</p></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 order-md-1">
+                    <div class="col-md-3 order-md-1">
                         <div class="feature-heading lh-0"><h2>216</h2><br>
                             <p>пользователей</p></div>
                     </div>
-                    <div class="col-md-4 order-md-2">
+                    <div class="col-md-3 order-md-2">
                         <div class="feature-heading  lh-0"><h2>24</h2><br>
                             <p>автора</p></div>
                     </div>
@@ -50,54 +50,43 @@
     <h2 align="center" class="feature-heading fw-normal lh-1">
         Наши новости
     </h2>
-
-    <div th:switch="${posts}">
-        <h2 th:case="null">No posts found!</h2>
+<div class="row row-1">
+    <div  th:switch="${posts}" th:each="post : ${posts}">
+        <h2 th:case="null">Новости не найдены</h2>
         <div th:case="*">
-            <h2>Posts</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Author</th>
-                    <th>Article</th>
-                    <th>Content</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="post : ${posts}">
-                    <td th:text="${post.getUser().getUsername()}"></td>
-                    <td th:text="${post.getArticle()}"></td>
-                    <td th:text="${post.getContent()}"></td>
-                    <td><a th:href="@{/post-update/{id}(id=${post.getPostId()})}">Edit</a></td>
-<!--                    todo добвить метод Пост для удаления-->
-                    <td><a th:href="@{/post-delete/{id}(id=${post.getPostId()})}" >Delete</a></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="col-card order-md-1 card shadow-sm">
+                <div class="rect-3 content">
+                    <img src="/img/1.png" alt="1.png">
+                </div>
+
+                <div class="card-body">
+                    <div class="card-title"  th:text="${post.getArticle()}"></div>
+                    <p class="card-text"  th:text="${post.getContent()}"></p>
+                    <div class="row">
+                        <form action="#" th:action="@{/post-update/{id} (id = ${post.getPostId()}) }" method="post">
+                            <button type="submit" >Изменить</button>
+                        </form>
+                        <!--                            <a th:href="@{/post-update/{id}(id=${post.getPostId()})}">Изменить</a>-->
+
+                        <form action="#" th:action="@{/{id} (id = ${post.getPostId()}) }" method="post">
+                            <button type="submit" >Удалить</button>
+                        </form>
+                        <!--                    todo добвить метод Пост для удаления-->
+                        <!--                        <a th:href="@{/post-delete/{id}(id=${post.getPostId()})}">Удалить</a>-->
+
+                        <small class="text-muted" th:href="${post.getUpdatedAt()}"></small>
+                    </div>
+                    <p  th:text="${post.getUser().getUsername()}"></p>
+                </div>
+            </div>
         </div>
-        <p><a href="/post-create">Create post</a></p>
+
     </div>
+</div>
+    <p><a href="/post-create">Create post</a></p>
+
 
 <!--    <div class="row row-1">-->
-<!--        <div class="col-md-4 order-md-1 card shadow-sm">-->
-<!--            <div class="rect-3 content">-->
-<!--                <img src="/img/1.png" alt="1.png">-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--                <div class="card-title">-->
-<!--                    Путешествие по горной Исландии-->
-<!--                </div>-->
-<!--                <p class="card-text">-->
-<!--                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.-->
-<!--                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе-->
-<!--                </p>-->
-<!--                <div class="d-flex justify-content-between align-items-center">-->
-<!--                    <button>Изменить</button>-->
-<!--                    <button>Удалить</button>-->
-<!--                    <small class="text-muted">14/12/2022</small>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
 <!--        <div class="col-md-4 order-md-2 card shadow-sm">-->
 <!--            <div class="rect-3 content">-->
 <!--                <img src="/img/1.png" alt="1.png">-->

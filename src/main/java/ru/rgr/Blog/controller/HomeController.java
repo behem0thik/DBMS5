@@ -31,21 +31,19 @@ public class HomeController {
 
     @GetMapping
     public String findFivePosts(Model model) {
-        List<Post> posts = postService.findAll().stream().limit(5).toList();
+        List<Post> posts = postService.findAll().stream().limit(3).toList();
 
 //        log.info("posts : {}", posts);
         model.addAttribute("posts", posts);
-        log.info("model : {}", model);
+        log.info("Got first " + posts.size() +" posts");
         return "/main";
     }
 
     @GetMapping("/post-create")
     public String createPostForm(Model model) {
-
-
         Post post = new Post();
         model.addAttribute("post", post);
-        return "/post-create";
+        return "post-create";
     }
 
     @PostMapping("/post-create")
@@ -59,8 +57,9 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PostMapping("/post-delete/{id}")
-    public void deletePost(@PathVariable("id") UUID postId) {
+    @PostMapping("/{id}")
+    public String deletePost(@PathVariable("id") UUID postId) {
         postService.deleteById(postId);
+        return "redirect:/";
     }
 }
