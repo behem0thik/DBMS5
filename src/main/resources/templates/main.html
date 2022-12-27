@@ -69,13 +69,9 @@
                             <div class="card-text" th:text="${post.getUpdatedAt()}"></div>
                         </div>
                         <div class="row">
-                            <form action="#" th:action="@{/post/{id}(id=${post.postId})}" method="get">
-                                <button type="submit">Читать далее</button>
+                            <form class="mt-0" action="#" th:action="@{/posts/{id}(id=${post.postId})}" method="get">
+                                <button class="btn btn-lg btn-primary" type="submit">Читать далее</button>
                             </form>
-
-                            <!--                            <form action="#" th:action="@{/{id} (id = ${post.getPostId()}) }" method="post">-->
-                            <!--                                <button type="submit">Удалить</button>-->
-                            <!--                            </form>-->
                         </div>
                     </div>
                 </div>
@@ -84,11 +80,11 @@
         </div>
     </div>
 
-    <div align="center">
-        <button class="btn btn-lg btn-primary">
-            <a href="/post-create">Создать пост</a>
-        </button>
-    </div>
+<!--    <div align="center">-->
+<!--        <button class="btn btn-lg btn-primary">-->
+<!--            <a href="/post-create">Создать пост</a>-->
+<!--        </button>-->
+<!--    </div>-->
 </div>
 </body>
 </html>

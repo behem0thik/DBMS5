@@ -13,22 +13,11 @@
     <img src="/img/articles-cover.png" alt="articles-cover.png">
 </div>
 <div class="container">
-    <!--    <div>-->
-    <!--        <div class="col-md-12 card mt-3 mb-3">-->
-    <!--            <div class="card-body">-->
-    <!--                <h2 class="lh-base">Название</h2>-->
-    <!--                <p class="card-text">Текст статьи</p>-->
-    <!--                <form class="mb-2">-->
-    <!--                    <button class="btn btn-lg btn-primary">Читать все</button>-->
-    <!--                </form>-->
-
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
 
     <div class="row-1">
         <div th:switch="${posts}" th:each="post : ${posts}">
             <h2 th:case="null">Новости не найдены</h2>
+
             <div th:case="*">
                 <div class="col-md-4 order-md-1 card shadow-sm">
                     <div class="rect-3 content">
@@ -40,7 +29,7 @@
                         <div class="card-text" th:text="${post.getContent()}"></div>
                         <div th:text="${post.getUser().getUsername()}"></div>
                         <div>
-                            <form class="mt-0" action="#" th:action="@{/post/{id}(id=${post.postId})}" method="get">
+                            <form class="mt-0" action="#" th:action="@{/posts/{id}(id=${post.postId})}" method="get">
                                 <button class="btn btn-lg btn-primary" type="submit">Читать далее</button>
                             </form>
                             <small class="text-muted" th:href="${post.getUpdatedAt()}"></small>
@@ -48,8 +37,16 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
+    <div align="center">
+        <form action="#" th:action="@{/posts/create}" method="get">
+            <button class="btn btn-lg btn-primary" type="submit">Написать пост</button>
+        </form>
+    </div>
+
 </div>
 </body>
 </html>
