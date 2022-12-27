@@ -2,6 +2,7 @@ package ru.rgr.Blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.rgr.Blog.model.Post;
 import ru.rgr.Blog.model.Tag;
 import ru.rgr.Blog.repository.PostRepository;
@@ -40,7 +41,9 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    @Transactional
     public Post update(UUID postId, Post post) {
+        postRepository.deleteById(postId);
         return postRepository.save(post);
     }
 
