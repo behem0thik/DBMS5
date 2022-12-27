@@ -15,12 +15,12 @@ import java.util.UUID;
 @RequestMapping("/rest/users")
 @Slf4j
 @RequiredArgsConstructor
-public class UserController {
+public class UserRestController {
 
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserRestController(UserService userService) {
         this.userService = userService;
     }
 

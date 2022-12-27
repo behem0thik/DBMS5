@@ -15,11 +15,11 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/rest/tags")
-public class TagController {
+public class TagRestController {
     private TagService tagService;
 
     @Autowired
-    public TagController(TagService tagService) {
+    public TagRestController(TagService tagService) {
         this.tagService = tagService;
     }
 

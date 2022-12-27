@@ -15,11 +15,11 @@ import java.util.UUID;
 @RequestMapping("/rest/posts")
 @RequiredArgsConstructor
 @Slf4j
-public class PostController {
+public class PostRestController {
     private PostService postService;
 
     @Autowired
-    public PostController(PostService postService) {
+    public PostRestController(PostService postService) {
         this.postService = postService;
     }
 
