@@ -27,7 +27,7 @@ public class PostController {
     }
 
     @GetMapping
-    public String findPosts(Model model) {
+    public String findAll(Model model) {
         List<Post> posts = postService.findAll();
 
         model.addAttribute("posts", posts);
@@ -36,7 +36,7 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String createPostForm(Model model) {
+    public String createForm(Model model) {
         Post post = new Post();
 
         model.addAttribute("post", post);
@@ -45,7 +45,7 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    public String createPost(Post post) {
+    public String create(Post post) {
         // TODO: 25.12.2022 костыль, пока нет spring security
         User user = userService.findUserByUsername("Valera");
         post.setUserId(user.getUserId());
@@ -56,7 +56,7 @@ public class PostController {
     }
 
     @GetMapping("/update/{id}")
-    public String updatePostForm(@PathVariable UUID id, Model model) {
+    public String updateForm(@PathVariable UUID id, Model model) {
         Post post = postService.findPostById(id);
 
         model.addAttribute("post", post);
@@ -65,7 +65,7 @@ public class PostController {
     }
 
     @PostMapping("/update/{id}")
-    public String updatePost(Post post, @PathVariable UUID id) {
+    public String update(Post post, @PathVariable UUID id) {
         // TODO: 25.12.2022 костыль, пока нет spring security
         User user = userService.findUserByUsername("Valera");
         post.setUserId(user.getUserId());
@@ -76,7 +76,7 @@ public class PostController {
     }
 
     @PostMapping("/{id}")
-    public String deletePost(@PathVariable("id") UUID postId) {
+    public String deleteById(@PathVariable("id") UUID postId) {
         postService.deleteById(postId);
         log.info("Delete post with given id: {}", postId);
         return "redirect:/posts";
