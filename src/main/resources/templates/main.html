@@ -7,12 +7,12 @@
     <link th:href="@{/styles/main.css}" rel="stylesheet"/>
 </head>
 <body>
-<!--<div th:insert="/blocks/header :: header"></div>-->
 <div th:insert="~{/blocks/header :: header}"></div>
 <div class="rect-1 content">
     <img alt="main-cover.png" src="/img/main-cover.png"/>
 </div>
 <div class="container">
+
     <div id="about" class="row row-3 row-block">
         <div class="col-md-5 order-md-1">
             <img src="/img/main-banner.png" width="580" alt="main-banner.png">
@@ -47,9 +47,11 @@
             </div>
         </div>
     </div>
+
     <h2 align="center" class="feature-heading fw-normal lh-1">
         Наши новости
     </h2>
+
     <div class="row row-1">
         <div th:switch="${posts}" th:each="post : ${posts}">
             <h2 th:case="null">Новости не найдены</h2>
@@ -63,65 +65,30 @@
                         <div class="card-title" th:text="${post.getArticle()}"></div>
                         <div class="card-text" th:text="${post.getContent()}"></div>
                         <div class="row">
-                            <form th:action="@{/post-update/{id} (id = ${post.getPostId()}) }" method="post">
-                                <button type="submit"><a href="/post-update">Изменить</a></button>
-                            </form>
-                            <!--                                <a th:href="@{/post-update/{id} (id=${post.getPostId()}) }">Изменить</a>-->
-                            <form action="#" th:action="@{/{id} (id = ${post.getPostId()}) }" method="post">
-                                <button type="submit">Удалить</button>
-                            </form>
-                            <small class="text-muted" th:href="${post.getUpdatedAt()}"></small>
+                            <div th:text="${post.getUser().getUsername()}"></div>
+                            <div class="card-text" th:text="${post.getUpdatedAt()}"></div>
                         </div>
-                        <div th:text="${post.getUser().getUsername()}"></div>
+                        <div class="row">
+                            <form action="#" th:action="@{/post/{id}(id=${post.postId})}" method="get">
+                                <button type="submit">Читать далее</button>
+                            </form>
+
+                            <!--                            <form action="#" th:action="@{/{id} (id = ${post.getPostId()}) }" method="post">-->
+                            <!--                                <button type="submit">Удалить</button>-->
+                            <!--                            </form>-->
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <p><a href="/post-create">Create post</a></p>
 
-
-    <!--    <div class="row row-1">-->
-    <!--        <div class="col-md-4 order-md-2 card shadow-sm">-->
-    <!--            <div class="rect-3 content">-->
-    <!--                <img src="/img/1.png" alt="1.png">-->
-    <!--            </div>-->
-    <!--            <div class="card-body">-->
-    <!--                <div class="card-title">-->
-    <!--                    Путешествие по горной Исландии-->
-    <!--                </div>-->
-    <!--                <p class="card-text">-->
-    <!--                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.-->
-    <!--                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе-->
-    <!--                </p>-->
-    <!--                <div class="d-flex justify-content-between align-items-center">-->
-    <!--                    <button>Изменить</button>-->
-    <!--                    <button>Удалить</button>-->
-    <!--                    <small class="text-muted">14/12/2022</small>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="col-md-4 order-md-3 card shadow-sm">-->
-    <!--            <div class="rect-3 content">-->
-    <!--                <img src="/img/1.png" alt="1.png">-->
-    <!--            </div>-->
-    <!--            <div class="card-body">-->
-    <!--                <div class="card-title">-->
-    <!--                    Путешествие по горной Исландии-->
-    <!--                </div>-->
-    <!--                <p class="card-text">-->
-    <!--                    Исландия – островное государство на просторах Мирового океана между Норвегией и Гренландией.-->
-    <!--                    Остров охватывает площадь в 103 599 кв. км и является вторым по величине в Европе-->
-    <!--                </p>-->
-    <!--                <div class="d-flex justify-content-between align-items-center">-->
-    <!--                    <button>Изменить</button>-->
-    <!--                    <button>Удалить</button>-->
-    <!--                    <small class="text-muted">14/12/2022</small>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+    <div align="center">
+        <button class="btn btn-lg btn-primary">
+            <a href="/post-create">Создать пост</a>
+        </button>
+    </div>
 </div>
 </body>
 </html>
