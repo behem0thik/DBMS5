@@ -17,7 +17,7 @@ CREATE TABLE public.posts
     post_id      VARCHAR(255) PRIMARY KEY            NOT NULL,
     user_id      VARCHAR(255)                        NOT NULL,
     article      VARCHAR(100)                        NOT NULL,
-    post_content OID                                 NOT NULL,
+    post_content VARCHAR                                NOT NULL,
     image        BYTEA                               NULL,
     created_at   TIMESTAMP DEFAULT current_timestamp NOT NULL,
     updated_at   TIMESTAMP DEFAULT current_timestamp NOT NULL,

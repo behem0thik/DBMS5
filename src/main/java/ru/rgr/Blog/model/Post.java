@@ -17,7 +17,6 @@ import java.util.Set;
 import java.util.UUID;
 
 import static jakarta.persistence.FetchType.EAGER;
-import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @NoArgsConstructor
@@ -44,16 +43,16 @@ public class Post implements Serializable {
     @Column(name = "article")
     private String article;
 
-    @Column(name = "post_content", columnDefinition = "TEXT")
-    @Lob
-    @Basic(fetch = LAZY)
+    @Column(name = "post_content")
     private String content;
 
-    @Column(name = "image", columnDefinition = "BLOB NULL")
-    @Basic(fetch = LAZY)
+    //    @Column(name = "image", columnDefinition = "BLOB NULL")
+    @Column(name = "image")
+    @Basic(fetch = EAGER)
+    @JdbcTypeCode(SqlTypes.BLOB)
     private byte[] image;
 
-    @ManyToMany(fetch = EAGER)
+    @ManyToMany(fetch = EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "posts_tags",
             joinColumns = {@JoinColumn(name = "post_id", referencedColumnName = "post_id")},
@@ -78,20 +77,5 @@ public class Post implements Serializable {
         this.content = content;
 //        this.image = image;
         this.tags = tags;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "postId=" + postId +
-                ", user=" + user +
-                ", userId=" + userId +
-                ", article='" + article + '\'' +
-                ", content='" + content + '\'' +
-//                ", image=" + Arrays.toString(image) +
-                ", tags=" + tags +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
     }
 }
