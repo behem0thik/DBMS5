@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.getArticle()}">Пост</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:insert="~{/blocks/header :: header}"></div>
+<div id="cover" class="rect-1 content">
+    <img src="/img/articles-cover.png" alt="articles-cover.png">
+</div>
+<div class="container" th:switch="${post}">
+    <h2 th:case="null">Пост не найден</h2>
+
+    <div th:case="*">
+        <h2 class="mt-5 mb-4 ml-1" th:text="${post.getArticle()}">Название</h2>
+        <p class=" ml-1" th:text="${post.getContent()}">Текст</p>
+        <p class=" ml-1" th:text="${post.getUser().getUsername()}">Автор: </p>
+        <p class=" ml-1" th:text="${post.getUpdatedAt()}">Дата обновления: </p>
+
+        <div class="row mb-1 mt-1">
+            <form th:action="@{/posts/update/{id} (id = ${post.getPostId()})}" method="get">
+                <button type="submit" class="btn btn-lg btn-primary ml-1">Изменить</button>
+            </form>
+
+            <form action="#" th:action="@{/posts/{id} (id = ${post.getPostId()}) }" method="post">
+                <button type="submit" class="btn btn-lg btn-primary">Удалить</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
