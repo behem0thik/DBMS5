@@ -30,7 +30,6 @@ public class Tag implements Serializable {
     private String tagName;
 
     @ManyToMany(mappedBy = "tags")
-//    @ToString.Exclude
     @JsonIgnore
     private Set<Post> posts = new HashSet<>();
 
